@@ -69,6 +69,7 @@ import VueQrReader from '@/components/VueQrReader.vue'
                     resistanceRatio: 1,
                     slidesPerView: 'auto',
                     slideToClickedSlide: false,
+					passiveListeners: false,
                     on: {
                         slideChange() {
                             if (this.activeIndex === 0) {

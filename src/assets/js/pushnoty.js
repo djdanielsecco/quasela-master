@@ -176,22 +176,5 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     
 
     
-console.log('This is executed right after setTimeout()');
-firestore.collection("sid").where("cod_Tree", ">=", 0).get()
-    .then(function (querySnapshot) {
-
-        console.log('teste')
-
-        querySnapshot.forEach(function (doc) {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.id, " => ", doc.data());
-			console.table(doc.data());
-        });
-
-
-        console.log('end')
-    })
-    .catch(function (error) {
-        console.log("Error getting documents: ", error);
-    });}
+}
 

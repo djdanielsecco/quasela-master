@@ -14,85 +14,8 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.c63925a6acd00bf08927dc6872c9c9aa.js"
+  "/precache-manifest.fb0417798e47152afda212a9d6876d3a.js"
 );
-importScripts('./src/js/idb.js');
-importScripts('./src/js/utility.js');
-importScripts('./src/js/fetch.js');
-
-workbox.setConfig({ debug: false });
-//workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
-/*workbox.routing.registerRoute(/.*(?:googleapis|gstatic)\.com.*$/, workbox.strategies.staleWhileRevalidate({
-  cacheName: 'google-fonts',
-  cacheExpiration: {
-    maxEntries: 300,
-    maxAgeSeconds: 60 * 60 * 24 * 30
-  }
-}));*/
-/*workbox.routing.registerRoute(
-  /\.(?:js|css)$/,
-  workbox.strategies.staleWhileRevalidate({
-    cacheName: 'static-resources',
-	  cacheExpiration: {
-    maxEntries: 300,
-    maxAgeSeconds: 60 * 60 * 24 * 30
-  }
-  }),
-);*/
-workbox.routing.registerRoute('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css', workbox.strategies.staleWhileRevalidate({
-  cacheName: 'material-css'
-}));
-
-/*
-workbox.routing.registerRoute(/.*(?:firebasestorage\.googleapis)\.com.*$/, workbox.strategies.staleWhileRevalidate({
-  cacheName: 'post-images'
-}));
-*/
-
-/*workbox.routing.registerRoute('https://ativador-anubz.firebaseio.com/trees.json', function(args) {
-  return fetch(args.event.request)
-    .then(function (res) {
-      var clonedRes = res.clone();
-      clearAllData('posts')
-        .then(function () {
-          return clonedRes.json();
-        })
-        .then(function (data) {
-          for (var key in data) {
-            delete data[key].image;
-            writeData('posts', data[key])
-          }
-        });
-      return res;
-    });
-});*/
-
-/*workbox.routing.registerRoute(function (routeData) {
-  return (routeData.event.request.headers.get('accept').includes('text/html'));
-}, function(args) {
-  return caches.match(args.event.request)
-    .then(function (response) {
-      if (response) {
-        return response;
-      } else {
-        return fetch(args.event.request)
-          .then(function (res) {
-            return caches.open('static-resources')
-              .then(function (cache) {
-                cache.put(args.event.request.url, res.clone());
-                return res;
-              })
-          })
-          .catch(function (err) {
-            return caches.match('/offline.html')
-              .then(function (res) {
-                return res;
-              });
-          });
-      }
-    })
-});*/
-
 
 workbox.core.setCacheNameDetails({prefix: "offline1"});
 
@@ -104,8 +27,6 @@ workbox.core.setCacheNameDetails({prefix: "offline1"});
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
-
-
 
 
 self.addEventListener('sync', function(event) {
